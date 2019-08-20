@@ -21,7 +21,13 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 //mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect("mongodb+srv://robert:<password>@yelpcamp-rheyy.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://robert:963852741Ira*@yelpcamp-rheyy.mongodb.net/test?retryWrites=true&w=majority", {
+	
+}).then(() =>{
+	console.log("Connected to db");
+}).catch(err => {
+	console.log("Error: ", err.message);
+});
 //mongodb+srv://robert:<password>@yelpcamp-rheyy.mongodb.net/test?retryWrites=true&w=majority
 
 app.use(bodyParser.urlencoded({extended: true}));
