@@ -20,7 +20,10 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+//mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv://robert:<password>@yelpcamp-rheyy.mongodb.net/test?retryWrites=true&w=majority");
+//mongodb+srv://robert:<password>@yelpcamp-rheyy.mongodb.net/test?retryWrites=true&w=majority
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
