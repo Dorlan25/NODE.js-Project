@@ -21,16 +21,8 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 
-
-mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb+srv://robert:963852741Ira*@yelpcamp-rheyy.mongodb.net/test?retryWrites=true&w=majority", {
-	
-// }).then(() =>{
-// 	console.log("Connected to db");
-// }).catch(err => {
-// 	console.log("Error: ", err.message);
-// });
-//mongodb+srv://robert:<password>@yelpcamp-rheyy.mongodb.net/test?retryWrites=true&w=majority
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(url);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -63,6 +55,6 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(process.env.PORT, function(){
+app.listen(3000, function(){
 	console.log("Yelp Camp listening on port 3000");
 });
